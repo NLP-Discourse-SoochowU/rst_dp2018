@@ -1,6 +1,6 @@
 ## Transition based RST-style Discourse Parser
 
-<b>-- LICENSE</b>
+<b>-- License</b>
 ```
    Copyright (c) 2018, Longyin Zhang, Soochow University NLP research group.
    All rights reserved.
@@ -13,13 +13,13 @@
       following disclaimer in the documentation and/or other materials provided with the distribution.
 ```
 
-<b>-- GENERAL INFORMATION</b>
+<b>-- General Information</b>
 ```
    1. This RST-style discourse parser produces discourse tree structure on full-text level, given a raw text.
    2. The method we use in this parser is similar to the method in the paper RST Discourse Parsing with Tree-structured Neural Networks.
 ```
 
-<b>-- REQUIRED PACKAGES</b>
+<b>-- Required Packages</b>
 ```
    torch==0.4.0 
    numpy==1.14.1
@@ -27,7 +27,7 @@
    stanfordcorenlp==3.9.1.1
 ```
 
-<b>-- RST PARSING with RAW DOCUMENTS</b>
+<b>-- RST Parsing with Raw Documents</b>
 ```
    1. Prepare your raw documents in data/raw_txt in the format of *.out
    2. Run the Stanford CoreNLP with the given bash script corpus_rst.sh using the command "./corpus_rst.sh "
@@ -41,13 +41,13 @@
 
       TODO
 
-<b>-- REFERENCE</b>
+<b>-- Reference</b>
 
    Please read the following paper for more technical details
    
    [Longyin Zhang, Cheng Sun, Xin Tan, and Fang Kong, RST Discourse Parsing with Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
 
-<b>-- DEVELOPERS</b>
+<b>-- Developer</b>
 ```
   Longyin Zhang
   Natural Language Processing Lab, School of Computer Science and Technology, Soochow University, China
