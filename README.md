@@ -2,7 +2,7 @@
 
 <b>-- LICENSE</b>
 ```
-   Copyright (c) 2018, Longyin Zhang, Soochow University
+   Copyright (c) 2018, Longyin Zhang, Soochow University NLP research group.
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without modification, are permitted provided that
