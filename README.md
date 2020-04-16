@@ -39,15 +39,19 @@
 
 <b>-- Training Your Own RST Parser</b>
 
-    TODO
+      TODO
 
 <b>-- REFERENCE</b>
 
    Please read the following paper for more technical details
-   RST Discourse Parsing with Tree-structured Neural Networks.
-
+   
+   [RST Discourse Parsing with Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
 
 -- DEVELOPERS
+```
   Longyin Zhang
   Natural Language Processing Lab, School of Computer Science and Technology, Soochow University, China
   mail to: zzlynx@outlook.com, lyzhang9@stu.suda.edu.cn
+
+```
+  
