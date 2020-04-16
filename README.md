@@ -1,18 +1,5 @@
 ## Transition based RST-style Discourse Parser
 
-<b>-- License</b>
-```
-   Copyright (c) 2018, Longyin Zhang, Soochow University NLP research group.
-   All rights reserved.
-
-   Redistribution and use in source and binary forms, with or without modification, are permitted provided that
-   the following conditions are met:
-   1. Redistributions of source code must retain the above copyright notice, this list of conditions and the
-      following disclaimer.
-   2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the
-      following disclaimer in the documentation and/or other materials provided with the distribution.
-```
-
 <b>-- General Information</b>
 ```
    1. This RST-style discourse parser produces discourse tree structure on full-text level, given a raw text.
@@ -54,4 +41,6 @@
   mail to: zzlynx@outlook.com, lyzhang9@stu.suda.edu.cn
 
 ```
+
+Copyright <2018> <The Natural Language Processing (NLP) Lab at Soochow University> <MIT License>
   
