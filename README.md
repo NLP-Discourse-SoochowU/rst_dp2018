@@ -1,4 +1,4 @@
-## RST-style Discourse Parser
+## Transition based RST-style Discourse Parser
 
 <b>-- LICENSE</b>
 ```
