@@ -30,8 +30,8 @@
 <b>-- RST PARSING with RAW DOCUMENTS</b>
 ```
    1. Prepare your raw documents in data/raw_txt in the format of *.out
-   2. Run the Stanford CoreNLP with the given bash script corpus_rst.sh with the command "./corpus_rst.sh "
-   3. Run parser.py to parse these raw documents into objects of the class rst_tree (Wrap them into trees) and draw them out.
+   2. Run the Stanford CoreNLP with the given bash script corpus_rst.sh using the command "./corpus_rst.sh "
+   3. Run parser.py to parse these raw documents into objects of rst_tree class (Wrap them into trees).
       - segmentation
       - wrap them into trees, saved in "data/trees_parsed/trees_list.pkl"
    4. Run drawer.py to draw those trees out by NLTK
@@ -47,7 +47,7 @@
    
    [RST Discourse Parsing with Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
 
--- DEVELOPERS
+<b>-- DEVELOPERS</b>
 ```
   Longyin Zhang
   Natural Language Processing Lab, School of Computer Science and Technology, Soochow University, China
