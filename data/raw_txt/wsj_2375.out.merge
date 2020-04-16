@@ -1,0 +1,150 @@
+0	1	Homestake	Homestake	b'NNP'	compound	5	b'ORGANIZATION'	b' (ROOT (SINV (FRAG (NP (NNP Homestake)'	1
+0	2	Mining	Mining	b'NNP'	compound	5	b'O'	b' (NNP Mining)'	1
+0	3	Co.,	Co.,	b'NNP'	compound	5	b'O'	b' (NNP Co.,)'	1
+0	4	San	San	b'NNP'	compound	5	b'O'	b' (NNP San)'	1
+0	5	Francisco,	Francisco,	b'NNP'	dep	6	b'O'	b' (NNP Francisco,)))'	1
+0	6	blamed	blame	b'VBD'	root	0	b'O'	b' (VP (VBD blamed)'	1
+0	7	the	the	b'DT'	det	9	b'O'	b' (NP (DT the)'	1
+0	8	continued	continued	b'JJ'	amod	9	b'O'	b' (JJ continued)'	1
+0	9	slump	slump	b'NN'	dobj	6	b'O'	b' (NN slump))'	1
+0	10	in	in	b'IN'	case	12	b'O'	b' (PP (IN in)'	1
+0	11	gold	gold	b'NN'	compound	12	b'O'	b' (NP (NP (NN gold)'	2
+0	12	prices	price	b'NNS'	nmod	6	b'O'	b' (NNS prices))'	2
+0	13	for	for	b'IN'	case	16	b'O'	b' (PP (IN for)'	2
+0	14	an	a	b'DT'	det	16	b'O'	b' (NP (NP (DT an)'	2
+0	15	83%	83%	b'JJ'	amod	16	b'O'	b' (JJ 83%)'	2
+0	16	plunge	plunge	b'NN'	nmod	12	b'O'	b' (NN plunge))'	2
+0	17	in	in	b'IN'	case	20	b'O'	b' (PP (IN in)'	2
+0	18	third-quarter	third-quarter	b'JJ'	amod	20	b'DATE'	b' (NP (JJ third-quarter)'	2
+0	19	net	net	b'JJ'	amod	20	b'O'	b' (JJ net)'	2
+0	20	income	income	b'NN'	nmod	16	b'O'	b' (NN income)))))))'	2
+0	21	to	to	b'TO'	case	23	b'O'	b' (PP (TO to)'	2
+0	22	$2	$2	b'CD'	nummod	23	b'NUMBER'	b' (NP (NP (NP (CD $2)'	2
+0	23	million,	million,	b'NN'	nmod	6	b'NUMBER'	b' (NN million,))'	2
+0	24	or	or	b'CC'	cc	23	b'O'	b' (CC or)'	2
+0	25	two	two	b'CD'	nummod	26	b'MONEY'	b' (NP (CD two)'	2
+0	26	cents	cent	b'NNS'	conj	23	b'MONEY'	b' (NNS cents)))'	2
+0	27	a	a	b'DT'	det	28	b'O'	b' (NP (NP (DT a)'	2
+0	28	share,	share,	b'NN'	dep	23	b'O'	b' (NN share,))'	2
+0	29	from	from	b'IN'	case	31	b'O'	b' (PP (IN from)'	2
+0	30	$11.2	$11.2	b'CD'	nummod	31	b'NUMBER'	b' (NP (CD $11.2)'	2
+0	31	million,	million,	b'NN'	nmod	28	b'NUMBER'	b' (NN million,))))'	2
+0	32	or	or	b'CC'	cc	23	b'O'	b' (CC or)'	2
+0	33	12	12	b'CD'	nummod	34	b'MONEY'	b' (NP (NP (CD 12)'	2
+0	34	cents	cent	b'NNS'	conj	23	b'MONEY'	b' (NNS cents))'	2
+0	35	a	a	b'DT'	det	36	b'O'	b' (NP (DT a)'	2
+0	36	share,	share,	b'NN'	dep	34	b'O'	b' (NN share,))))))'	2
+0	37	a	a	b'DT'	det	39	b'DURATION'	b' (NP (DT a)'	2
+0	38	year	year	b'NN'	compound	39	b'DURATION'	b' (NN year)'	2
+0	39	earlier.	earlier.	b'NN'	nsubj	6	b'O'	b' (NN earlier.))))'	2
+
+1	1	Revenue	revenue	b'NN'	nsubj	2	b'O'	b' (ROOT (S (NP (NN Revenue))'	3
+1	2	rose	rise	b'VBD'	root	0	b'O'	b' (VP (VBD rose)'	3
+1	3	5%	5%	b'CD'	dobj	2	b'NUMBER'	b' (NP (CD 5%))'	3
+1	4	to	to	b'TO'	case	6	b'O'	b' (PP (TO to)'	3
+1	5	$110.4	$110.4	b'CD'	compound	6	b'NUMBER'	b' (NP (QP (CD $110.4)'	4
+1	6	million	million	b'CD'	nmod	2	b'NUMBER'	b' (CD million))))'	4
+1	7	from	from	b'IN'	case	9	b'O'	b' (PP (IN from)'	4
+1	8	$105.4	$105.4	b'CD'	nummod	9	b'NUMBER'	b' (NP (CD $105.4)'	4
+1	9	million.	million.	b'NN'	nmod	2	b'NUMBER'	b' (NN million.))))))'	4
+
+2	1	In	in	b'IN'	case	7	b'O'	b' (ROOT (S (PP (IN In)'	5
+2	2	New	New	b'NNP'	compound	7	b'ORGANIZATION'	b' (NP (NNP New)'	5
+2	3	York	York	b'NNP'	compound	7	b'ORGANIZATION'	b' (NNP York)'	5
+2	4	Stock	Stock	b'NNP'	compound	7	b'ORGANIZATION'	b' (NNP Stock)'	5
+2	5	Exchange	Exchange	b'NNP'	compound	7	b'ORGANIZATION'	b' (NNP Exchange)'	5
+2	6	composite	composite	b'JJ'	amod	7	b'O'	b' (JJ composite)'	5
+2	7	trading,	trading,	b'NN'	nmod	9	b'O'	b' (NN trading,)))'	5
+2	8	Homestake	Homestake	b'NNP'	nsubj	9	b'ORGANIZATION'	b' (NP (NNP Homestake))'	5
+2	9	closed	close	b'VBD'	root	0	b'O'	b' (VP (VBD closed)'	5
+2	10	at	at	b'IN'	case	11	b'O'	b' (PP (IN at)'	5
+2	11	$15.25,	$15.25,	b'CD'	nmod	9	b'NUMBER'	b' (NP (CD $15.25,)))'	5
+2	12	down	down	b'IN'	case	14	b'O'	b' (PP (IN down)'	5
+2	13	25	25	b'CD'	nummod	14	b'NUMBER'	b' (NP (CD 25)'	5
+2	14	cents.	cents.	b'NN'	nmod	9	b'O'	b' (NN cents.))))))'	5
+
+3	1	"A	"a	b'NN'	compound	3	b'O'	b' (ROOT (S (NP (NP (NN "A)'	6
+3	2	significant	significant	b'JJ'	amod	3	b'O'	b' (JJ significant)'	6
+3	3	increase	increase	b'NN'	nsubjpass	24	b'O'	b' (NN increase))'	6
+3	4	in	in	b'IN'	case	6	b'O'	b' (PP (IN in)'	6
+3	5	gold	gold	b'NN'	compound	6	b'O'	b' (NP (NP (NN gold)'	6
+3	6	sales	sale	b'NNS'	nmod	3	b'O'	b' (NNS sales))'	6
+3	7	to	to	b'TO'	case	9	b'O'	b' (PP (TO to)'	6
+3	8	248,279	248,279	b'CD'	nummod	9	b'NUMBER'	b' (NP (NP (CD 248,279)'	6
+3	9	ounces	ounce	b'NNS'	nmod	6	b'O'	b' (NNS ounces))'	6
+3	10	for	for	b'IN'	case	12	b'O'	b' (PP (IN for)'	6
+3	11	the	the	b'DT'	det	12	b'DATE'	b' (NP (NP (DT the)'	6
+3	12	quarter	quarter	b'NN'	nmod	9	b'DATE'	b' (NN quarter))'	6
+3	13	from	from	b'IN'	case	14	b'O'	b' (PP (IN from)'	6
+3	14	188,726	188,726	b'CD'	nmod	12	b'NUMBER'	b' (NP (NP (CD 188,726))'	6
+3	15	in	in	b'IN'	case	18	b'O'	b' (PP (IN in)'	6
+3	16	the	the	b'DT'	det	18	b'DATE'	b' (NP (NP (DT the)'	6
+3	17	third	third	b'JJ'	amod	18	b'DATE'	b' (JJ third)'	6
+3	18	quarter	quarter	b'NN'	nmod	14	b'DATE'	b' (NN quarter))'	6
+3	19	of	of	b'IN'	case	20	b'DATE'	b' (PP (IN of)'	6
+3	20	1988	1988	b'CD'	nmod	18	b'DATE'	b' (NP (CD 1988))))))))))))))'	6
+3	21	was	be	b'VBD'	auxpass	24	b'O'	b' (VP (VBD was)'	6
+3	22	more	more	b'JJR'	advmod	24	b'O'	b' (ADVP (JJR more)'	6
+3	23	than	than	b'IN'	case	22	b'O'	b' (IN than))'	6
+3	24	offset	offset	b'VBN'	root	0	b'O'	b' (VP (VBN offset)'	6
+3	25	by	by	b'IN'	case	28	b'O'	b' (PP (IN by)'	6
+3	26	the	the	b'DT'	det	28	b'O'	b' (NP (NP (DT the)'	6
+3	27	continued	continued	b'JJ'	amod	28	b'O'	b' (JJ continued)'	6
+3	28	decline	decline	b'NN'	nmod	24	b'O'	b' (NN decline))'	6
+3	29	in	in	b'IN'	case	33	b'O'	b' (PP (IN in)'	6
+3	30	average	average	b'JJ'	amod	33	b'O'	b' (NP (NP (JJ average)'	6
+3	31	gold	gold	b'JJ'	amod	33	b'O'	b' (JJ gold)'	6
+3	32	price	price	b'NN'	compound	33	b'O'	b' (NN price)'	6
+3	33	realization	realization	b'NN'	nmod	28	b'O'	b' (NN realization))'	6
+3	34	to	to	b'TO'	case	35	b'O'	b' (PP (TO to)'	6
+3	35	$367	$367	b'CD'	nmod	33	b'NUMBER'	b' (NP (CD $367)))))))'	6
+3	36	from	from	b'IN'	case	37	b'O'	b' (PP (IN from)'	6
+3	37	$429	$429	b'CD'	nmod	24	b'NUMBER'	b' (NP (NP (CD $429))'	6
+3	38	per	per	b'IN'	case	39	b'O'	b' (PP (IN per)'	6
+3	39	ounce,"	ounce,"	b'NN'	nmod	37	b'O'	b' (NP (NP (NN ounce,"))'	6
+3	40	the	the	b'DT'	det	41	b'O'	b' (NP (DT the)'	6
+3	41	company	company	b'NN'	dep	39	b'O'	b' (NN company))))))'	6
+3	42	said.	said.	b'IN'	case	37	b'O'	b' (PP (IN said.))))))'	6
+
+4	1	For	for	b'IN'	case	4	b'O'	b' (ROOT (S (PP (IN For)'	7
+4	2	the	the	b'DT'	det	4	b'O'	b' (NP (DT the)'	7
+4	3	nine	nine	b'CD'	nummod	4	b'NUMBER'	b' (CD nine)'	7
+4	4	months,	months,	b'NN'	nmod	8	b'O'	b' (NN months,)))'	7
+4	5	the	the	b'DT'	det	7	b'O'	b' (NP (DT the)'	7
+4	6	mining	mining	b'NN'	compound	7	b'O'	b' (NN mining)'	7
+4	7	company	company	b'NN'	nsubj	8	b'O'	b' (NN company))'	7
+4	8	posted	post	b'VBD'	root	0	b'O'	b' (VP (VBD posted)'	7
+4	9	a	a	b'DT'	det	11	b'O'	b' (NP (NP (DT a)'	7
+4	10	40%	40%	b'CD'	nummod	11	b'NUMBER'	b' (CD 40%)'	7
+4	11	drop	drop	b'NN'	dobj	8	b'O'	b' (NN drop))'	7
+4	12	in	in	b'IN'	case	13	b'O'	b' (PP (IN in)'	7
+4	13	profit	profit	b'NN'	nmod	11	b'O'	b' (NP (NN profit))))'	7
+4	14	to	to	b'TO'	case	16	b'O'	b' (PP (TO to)'	7
+4	15	$30.1	$30.1	b'CD'	nummod	16	b'NUMBER'	b' (NP (NP (NP (CD $30.1)'	7
+4	16	million,	million,	b'NN'	nmod	8	b'NUMBER'	b' (NN million,))'	7
+4	17	or	or	b'CC'	cc	16	b'O'	b' (CC or)'	7
+4	18	31	31	b'CD'	nummod	19	b'MONEY'	b' (NP (CD 31)'	7
+4	19	cents	cent	b'NNS'	conj	16	b'MONEY'	b' (NNS cents)))'	7
+4	20	a	a	b'DT'	det	21	b'O'	b' (NP (NP (DT a)'	7
+4	21	share,	share,	b'NN'	dep	16	b'O'	b' (NN share,))'	7
+4	22	from	from	b'IN'	case	24	b'O'	b' (PP (IN from)'	7
+4	23	$50.6	$50.6	b'CD'	nummod	24	b'NUMBER'	b' (NP (CD $50.6)'	7
+4	24	million,	million,	b'NN'	nmod	21	b'NUMBER'	b' (NN million,))))'	7
+4	25	or	or	b'CC'	cc	16	b'O'	b' (CC or)'	7
+4	26	52	52	b'CD'	nummod	27	b'MONEY'	b' (NP (NP (CD 52)'	7
+4	27	cents	cent	b'NNS'	conj	16	b'MONEY'	b' (NNS cents))'	7
+4	28	a	a	b'DT'	det	29	b'O'	b' (NP (DT a)'	7
+4	29	share,	share,	b'NN'	dep	27	b'O'	b' (NN share,)))))'	7
+4	30	on	on	b'IN'	case	33	b'O'	b' (PP (IN on)'	7
+4	31	a	a	b'DT'	det	33	b'O'	b' (NP (NP (DT a)'	7
+4	32	6%	6%	b'CD'	nummod	33	b'NUMBER'	b' (CD 6%)'	7
+4	33	rise	rise	b'NN'	nmod	8	b'O'	b' (NN rise))'	7
+4	34	in	in	b'IN'	case	35	b'O'	b' (PP (IN in)'	7
+4	35	revenue	revenue	b'NN'	nmod	33	b'O'	b' (NP (NN revenue)))))'	7
+4	36	to	to	b'TO'	case	38	b'O'	b' (PP (TO to)'	7
+4	37	$323.2	$323.2	b'CD'	compound	38	b'NUMBER'	b' (NP (QP (CD $323.2)'	8
+4	38	million	million	b'CD'	nmod	8	b'NUMBER'	b' (CD million))))'	8
+4	39	from	from	b'IN'	case	41	b'O'	b' (PP (IN from)'	8
+4	40	$305.7	$305.7	b'CD'	nummod	41	b'NUMBER'	b' (NP (CD $305.7)'	8
+4	41	million.	million.	b'NN'	nmod	8	b'NUMBER'	b' (NN million.))))))'	8
+
