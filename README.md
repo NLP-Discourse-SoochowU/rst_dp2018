@@ -45,7 +45,7 @@
 
    Please read the following paper for more technical details
    
-   [RST Discourse Parsing with Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
+   [Longyin Zhang, Cheng Sun, Xin Tan, and Fang Kong, RST Discourse Parsing with Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
 
 <b>-- DEVELOPERS</b>
 ```
