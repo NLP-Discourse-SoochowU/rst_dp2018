@@ -3,8 +3,9 @@
 """
 @Author: lyzhang
 @Date: 2018/4/5
-@Description:   tree.edus in the form of ids
-                tree.nodes in the form of rst_tree objective
+@Description:
+    tree.edus in the form of ids
+    tree.nodes in the form of rst_tree objective
 """
 import copy
 

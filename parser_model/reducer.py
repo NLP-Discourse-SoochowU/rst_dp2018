@@ -23,16 +23,9 @@ class Reducer(nn.Module):
         self.proj = nn.Linear(self.hidden_size * 2, self.hidden_size * 5)
 
     def forward(self, left, right, tracking, conn_tracking):
-        """
-        Desc: The forward of Reducer
-        input: The rep of left node and right node, e is the tree lstm's output, it has a different D.
-        output:
-               The rep of temp node
-        :param conn_tracking:
-        :param left:
-        :param right:
-        :param tracking:
-        :return:
+        """ Desc: The forward of Reducer
+            Input: The rep of left node and right node, e is the tree lstm's output, it has a different D.
+            output: The rep of temp node
         """
         h1, c1 = left.chunk(2)
         h2, c2 = right.chunk(2)

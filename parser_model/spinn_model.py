@@ -3,7 +3,7 @@
 """
 @Author: lyzhang
 @Date: 2018/5/4
-@Description:
+@Description: core model of our parser.
 """
 
 from collections import deque
@@ -43,7 +43,7 @@ class SPINN(nn.Module):
         else:
             self.wordemb.requires_grad = False
         self.pos2ids = pos2ids
-        self.posemb = nn.Embedding(len(pos2ids.keys()), self.posemb_size)  # 随机初始化pos_embed
+        self.posemb = nn.Embedding(len(pos2ids.keys()), self.posemb_size)  # randomly initialized
         self.posemb.requires_grad = True
 
         self.feat2_emb = nn.Embedding(52, FEAT2_SIZE)
@@ -51,25 +51,25 @@ class SPINN(nn.Module):
 
         self.feat3_l_emb = nn.Embedding(5, FEAT3_SIZE)
         self.feat3_l_emb.requires_grad = True
-        self.feat3_r_emb = nn.Embedding(5, FEAT3_SIZE)  # 对text_span包含的EDU个数向量化
+        self.feat3_r_emb = nn.Embedding(5, FEAT3_SIZE)  # number of EDUs in text spans
         self.feat3_r_emb.requires_grad = True
 
         self.feat4_l_emb = nn.Embedding(3, FEAT4_SIZE)
         self.feat4_l_emb.requires_grad = True
-        self.feat4_r_emb = nn.Embedding(3, FEAT4_SIZE)  # 对text_span是否在一个句子内部向量化
+        self.feat4_r_emb = nn.Embedding(3, FEAT4_SIZE)  # whether text spans in a sentence
         self.feat4_r_emb.requires_grad = True
 
-        self.feat5_emb = nn.Embedding(3, FEAT5_SIZE)  # 对两个text_span是否在一个句子里向量化
+        self.feat5_emb = nn.Embedding(3, FEAT5_SIZE)  # whether two text span in the same sentence
         self.feat5_emb.requires_grad = True
-        self.feat6_emb = nn.Embedding(20, FEAT6_SIZE)  # 对已经预测得到的子树的关系向量化
+        self.feat6_emb = nn.Embedding(20, FEAT6_SIZE)  # relationship between subtrees
         self.feat6_emb.requires_grad = True
 
         self.conn2ids = load_data(CONN_word2ids)
-        self.connemb = nn.Embedding(len(self.conn2ids.keys()), self.connemb_size)  # 随机初始化pos_embed
+        self.connemb = nn.Embedding(len(self.conn2ids.keys()), self.connemb_size)
         self.connemb.requires_grad = True
 
         self.feature2ids = edu_feature2ids
-        self.feat_emb = nn.Embedding(len(self.feature2ids.keys()), self.feature_emb_size)  # 随机初始化
+        self.feat_emb = nn.Embedding(len(self.feature2ids.keys()), self.feature_emb_size)
         self.feat_emb.requires_grad = True
 
         self.tracker = Tracker(self.hidden_size)
@@ -79,11 +79,11 @@ class SPINN(nn.Module):
         self.edu_proj1 = nn.Linear(self.wordemb_size, self.hidden_size * 2)
         self.edu_proj2 = nn.Linear(self.wordemb_size * 3 + self.posemb_size * 3, self.hidden_size * 2)
         self.edu_proj3 = nn.Linear(self.wordemb_size * 3, self.hidden_size * 2)
-        # bow加入
+        # bow in
         self.edu_proj2_bow = nn.Linear(self.wordemb_size * 3 + self.posemb_size * 3 + self.wordemb_size,
                                        self.hidden_size * 2)
         self.edu_proj3_bow = nn.Linear(self.wordemb_size * 3 + self.wordemb_size, self.hidden_size * 2)
-        # 为3个词的方案创建projection
+        # projection
         self.edu_proj4 = nn.Linear(self.wordemb_size * 4 + self.posemb_size * 4, self.hidden_size * 2)
         self.edu_proj5 = nn.Linear(self.wordemb_size * 4, self.hidden_size * 2)
         self.edu_proj6 = nn.Linear(self.wordemb_size * 4 + self.posemb_size * 4 + self.wordemb_size,
@@ -102,13 +102,10 @@ class SPINN(nn.Module):
         hidden_size10 = int(input_size10 / 2)
         self.edu_proj10 = MLP(input_size=input_size10, output_size=2 * self.hidden_size, hidden_size=hidden_size10,
                               num_layers=2)
-        # self.edu_proj9 = nn.Linear(self.wordemb_size * 4 + self.posemb_size * 4 + self.feature_emb_size +
-        #                            self.wordemb_size * 3, self.hidden_size * 2)
 
-        self.mlp_structure = MLP(output_size=Transition_num, num_layers=2)  # 对tracking的隐藏层输出进入mlp
+        self.mlp_structure = MLP(output_size=Transition_num, num_layers=2)  # tracking in mlp
         # self.mlp_structure = nn.Linear(mlp_input_size, Transition_num)
 
-        # 针对关系集合创建, 创建3层感知器，因为关系类别多。
         self.mlp_rel = MLP(output_size=COARSE_REL_NUM, num_layers=2)
 
         # bilstm + attention
@@ -123,10 +120,7 @@ class SPINN(nn.Module):
 
     @staticmethod
     def copy_session(session):
-        """
-        Desc: return a copy of a session.
-        :param session:
-        :return:
+        """ Desc: return a copy of a session.
         """
         stack_, buffer_, tracking, conn_buffer, conn_tracking = session
         stack_clone = [s.clone() for s in stack_]
@@ -153,10 +147,7 @@ class SPINN(nn.Module):
             return Var(torch.LongTensor(edu_ids_list))
 
     def generate_feat_vec(self, features=None):
-        """
-        对之前的特征的ids转换成对应向量 返回328
-        :param features:
-        :return:
+        """ ids 2 feature embedding
         """
         feat1_word_ids, feat1_pos_ids, feat2_ids, feat3_l_ids, feat3_r_ids, feat4_l_ids, feat4_r_ids, feat5_ids, \
             feat6_ids = features
@@ -175,21 +166,17 @@ class SPINN(nn.Module):
         return feat_vec
 
     def new_session(self, tree):
+        """ Desc: Create a new session
+            Input: the root of a new tree
+            Output: stack, buffer, tracking
         """
-        Desc: Create a new session
-        Input: the root of a new tree
-        Output: stack, buffer, tracking
-        :param tree:
-        :return:
-        """
-        # 初始状态空栈中存在两个空数据
+        # initialize stack and buffer
         stack = [Var(torch.zeros(self.hidden_size * 2)) for _ in range(2)]  # [dumb, dumb]
-        # 初始化队列
         buffer_ = deque()
         conn_buffer = deque()
 
         for edu_ in tree.edus:
-            buffer_.append(self.edu_encode(edu_))  # 对edu进行编码
+            buffer_.append(self.edu_encode(edu_))  # EDU encoding
             conn_buffer.append(self.get_edu_conn_vecs(edu_.temp_edu_conn_ids))
 
         buffer_.append(Var(torch.zeros(self.hidden_size * 2)))  # [edu, edu, ..., dumb]
@@ -201,13 +188,7 @@ class SPINN(nn.Module):
         return stack, buffer_, tracking, conn_buffer, conn_tracking
 
     def score(self, session, features=None):
-        """
-        Desc: sigmoid(fullc(h->1))
-            使用BCE loss的时候返回一个概率，用sigmoid
-            使用Cross entropy loss的时候返回一组概率值，个数和标签数一致
-        :param features:
-        :param session:
-        :return:
+        """ Desc: sigmoid(fullc(h->1))
         """
         _, _, tracking, _, conn_tracking = session
         h, _ = tracking
@@ -227,13 +208,7 @@ class SPINN(nn.Module):
         return score_output
 
     def score_rel(self, session, features=None):
-        """
-        Desc: sigmoid(fullc(h->1))
-            使用BCE loss的时候返回一个概率，用sigmoid
-            使用Cross entropy loss的时候返回一组概率值，个数和标签数一致
-        :param features:
-        :param session:
-        :return:
+        """ Desc: sigmoid(fullc(h->1))
         """
         _, _, tracking, _, conn_tracking = session
         h, _ = tracking
@@ -262,23 +237,14 @@ class SPINN(nn.Module):
         hs, _ = self.edu_rnn_encoder(inputs)  # hs.size()  (seq_len, batch, hidden_size)
         hs = hs.squeeze()  # size: (seq_len, hidden_size)
         keys = self.edu_attn(hs)  # size: (seq_len, hidden_size)
-        # print(keys.size())
-        # print(self.edu_att_query.size())
-        # input(keys.matmul(self.edu_attn_query).size())  # change 2
         attn = nnfunc.softmax(keys.matmul(self.edu_attn_query), 0)
         output = (hs * attn.view(-1, 1)).sum(0)
-        # input("bi lstm!")
         return output, attn
 
     def edu_encode(self, edu):
-        # print(edu.temp_edu_ids)
-        # input(edu.temp_edu)
-        """
-        Desc: Use the 0 1 -1 word vector of a sentence to encode an EDU
-        Input: An object of rst_tree, leaf node
-        Output: An output of code with lower dimension.
-        :param edu:
-        :return:
+        """ Desc: Use the 0 1 -1 word vector of a sentence to encode an EDU
+            Input: An object of rst_tree, leaf node
+            Output: An output of code with lower dimension.
         """
         edu_ids = edu.temp_edu_ids[:]
         pos_ids = edu.temp_pos_ids[:]
@@ -299,13 +265,10 @@ class SPINN(nn.Module):
             # VERSION == 5 bilstm + self attention
             word_emb = self.wordemb(torch.LongTensor(edu_ids))  # (50, 100)
             pos_embed = self.posemb(torch.LongTensor(pos_ids))
-            # print(word_emb.size(), "=======", pos_embed.size())
-            # input()
             rnn_emb, attn = self.edu_bilstm_encode(word_emb, pos_embed)
             edu_embed = torch.cat([word_emb[0], word_emb[-1], pos_embed[0], rnn_emb])
             # project
             proj_out = self.edu_proj8(edu_embed)
-            # input(rnn_emb.size())
             # proj_out = rnn_emb
         elif VERSION == 6:
             proj_out = ...
@@ -349,15 +312,11 @@ class SPINN(nn.Module):
             return [w1, w2, w_1], [p1, p2, p_1]
 
     def forward(self, session, transition):
-        """
-        Desc: The forward of SPINN
-        Input:
-               session and (shift or reduce)
-        output:
-               newest stack and buffer, lstm output
-        :param session:
-        :param transition:
-        :return:
+        """ Desc: The forward of SPINN
+            Input:
+                   session and (shift or reduce)
+            output:
+                   newest stack and buffer, lstm output
         """
         stack_, buffer_, tracking, conn_buffer, conn_tracking = session
         if transition == SHIFT:
@@ -367,7 +326,7 @@ class SPINN(nn.Module):
             s2 = stack_.pop()
             compose = self.reducer(s2, s1, tracking, conn_tracking)  # the forward of Reducer
             stack_.append(compose)
-        # 最新状态转移
+        # state transition
         tracking = self.tracker(stack_, buffer_, tracking)  # The forward of the Tracker
         conn_tracking = self.conn_tracker(conn_buffer, conn_tracking)
         if transition == SHIFT:

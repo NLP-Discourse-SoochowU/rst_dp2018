@@ -20,9 +20,9 @@ class Performance(object):
 class Metrics(object):
     def __init__(self):
         if not Only_structure:
-            self.levels = ['span', 'nuclearity', 'relation']  # 也针对关系
+            self.levels = ['span', 'nuclearity', 'relation']
         else:
-            self.levels = ['span', 'nuclearity']  # 只针对结构
+            self.levels = ['span', 'nuclearity']
         self.span_perf = []
         self.nuc_perf = []
         self.rela_perf = []
@@ -47,15 +47,12 @@ class Metrics(object):
                 tmp_predspan_Rel_ids = None
             self.eval_one(tmp_goldspan_ids, tmp_predspan_ids, tmp_goldspan_NS_ids, tmp_predspan_NS_ids,
                           tmp_goldspan_Rel_ids, tmp_predspan_Rel_ids)
-        # 汇总评价
         self.report(model=model)
 
     def eval_one(self, tmp_goldspan_ids, tmp_predspan_ids, tmp_goldspan_ns_ids, tmp_predspan_ns_ids,
                  tmp_goldspan_rel_ids, tmp_predspan_rel_ids):
+        """ compute the number of span in gold and pred for F and P.
         """
-                compute the number of span in gold and pred for F and P.
-            """
-        # print("开始评测...")
         # span
         allspan = [span for span in tmp_goldspan_ids if span in tmp_predspan_ids]
         allspan_gold_idx = [tmp_goldspan_ids.index(span) for span in allspan]
@@ -70,7 +67,6 @@ class Metrics(object):
         else:
             all_goldspan_REL = all_predspan_REL = None
 
-        # print("span评测中...")
         p_1, r_1 = 0.0, 0.0
         for span in allspan:
             if span in tmp_goldspan_ids:
@@ -81,23 +77,16 @@ class Metrics(object):
         # r = (r_1 - 1) / (len(tmp_predspan_ids) - 1)
         self.span_perf.append(p)
 
-        # print("nuclearity评测中...")
-        allspan_NS_count = sum(np.equal(all_goldspan_NS, all_predspan_NS))  # 看在相同的span上面标注的NS有多少是与标准一致
+        allspan_NS_count = sum(np.equal(all_goldspan_NS, all_predspan_NS))
         p = (allspan_NS_count - 1) / (len(tmp_goldspan_ids) - 1)
-        # r = (allspan_NS_count - 1) / (len(tmp_predspan_ids) - 1)
         self.nuc_perf.append(p)
 
-        # print("relation评测中...")
         if all_goldspan_REL is not None:
             allspan_REL_count = sum(np.equal(all_goldspan_REL, all_predspan_REL))
             p = (allspan_REL_count - 1) / (len(tmp_goldspan_ids) - 1)
-            # r = (allspan_REL_count - 1) / (len(tmp_predspan_ids) - 1)
             self.rela_perf.append(p)
 
     def report(self, model):
-        """
-            汇总计算
-        """
         p_span = np.array(self.span_perf).mean()
         span_file_name = "/span_max_model.pth"
         p_ns = np.array(self.nuc_perf).mean()
@@ -125,7 +114,6 @@ class Metrics(object):
 
     @staticmethod
     def save_model(file_name, model):
-        # 存储
         dir2save = MODELS2SAVE + "/v" + str(VERSION) + "_set" + str(SET_of_version)
         safe_mkdir(dir2save)
         save_path = dir2save + file_name
@@ -133,11 +121,6 @@ class Metrics(object):
 
     @staticmethod
     def get_span(tree_):
-        """
-        获取每棵树的各自的span_ids
-        :param tree_:
-        :return:
-        """
         count_edus = 0
         span_ids = []
         for node in tree_.nodes:
@@ -148,11 +131,6 @@ class Metrics(object):
 
     @staticmethod
     def get_span_ns(tree_):
-        """
-        获取每棵树的各自的span_ids
-        :param tree_:
-        :return:
-        """
         ns_dict = {"Satellite": 0, "Nucleus": 1, "Root": 2}
         count_edus = 0
         span_ns_ids = []
@@ -164,10 +142,6 @@ class Metrics(object):
 
     @staticmethod
     def get_span_rel_ids(tree_):
-        """
-        :param tree_:
-        :return:
-        """
         coarse2ids = load_data(REL_coarse2ids)
         span_rel_ids = []
         for node in tree_.nodes:

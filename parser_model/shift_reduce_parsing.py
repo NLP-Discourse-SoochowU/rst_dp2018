@@ -16,12 +16,9 @@ from parser_model.feature_generator import feature_generator
 
 
 def oracle(tree):
-    """
-         Desc: Back_traverse a gold tree of rst-dt
-        Input:
-               The tree object of rst_tree
-       Output:
-               Temp transition.
+    """ Desc: Back_traverse a gold tree of rst-dt
+        Input: The tree object of rst_tree
+        Output: Temp transition.
     """
     for node in tree.nodes:
         if node.left_child is not None and node.right_child is not None:
@@ -37,8 +34,7 @@ def oracle(tree):
 
 
 class SPINN_SR:
-    """
-        Training Container
+    """ Training Container
     """
     def __init__(self):
         torch.manual_seed(SEED)
@@ -64,21 +60,14 @@ class SPINN_SR:
         return self.model.new_session(tree)
 
     def train_(self, trees, trees_eval_path=None):
-        """
-        train your own model
-        :param trees:
-        :param trees_eval_path:
-        :return:
+        """ train your own model
         """
         ...
 
     def evaluate(self, trees_eval_path, model):
-        """
-            Desc: 评测
-            Input: rst_trees
+        """ Input: rst_trees
             Output: P R F
         """
-        print("不加特征评测...")
         trees_eval_gold = load_data(trees_eval_path)
         trees_eval = load_data(trees_eval_path)
         trees_pred = self.parser.parsing_all(trees_eval, model)
@@ -86,19 +75,16 @@ class SPINN_SR:
         for tree_ in trees_pred:
             trees_eval_pred.append(tree_obj(tree_))
         self.metric.eval_(trees_eval_gold, trees_eval_pred, self.model)
-        print("评测结束!")
 
     def save(self, folder):
-        """
-            Desc: Save the model.
+        """ Desc: Save the model.
         """
         save_data(self.model, os.path.join(folder, "torch.bin"), append=True)
         save_data(self, os.path.join(folder, "model.pickle"), append=True)
 
     @staticmethod
     def restore(folder):
-        """
-            Desc: Load the model.
+        """ Desc: Load the model.
         """
         model = load_data(os.path.join(folder, "model.pickle"))
         model.model = load_data(os.path.join(folder, "torch.bin"))

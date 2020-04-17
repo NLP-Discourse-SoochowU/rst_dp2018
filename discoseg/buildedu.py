@@ -19,11 +19,6 @@ dr_ = None
 
 
 def extract(rpath):
-    """
-        对xml文件构建 conll 文件
-    :param rpath:
-    :return:
-    """
     files = [join(rpath, fname) for fname in listdir(rpath) if fname.endswith(".xml")]
     for fxml in files:
         print('Processing file: {}'.format(fxml))
@@ -72,12 +67,10 @@ def writedoc(doc, fname, wpath):
             line += tok.word + "\t" + tok.lemma + "\t"
             line += tok.pos + "\t" + tok.deplabel + "\t"
             line += str(tok.hidx) + "\t" + tok.ner + "\t"
-            # 为了程序能继续走下去 修改了代码 张龙印 log
             if tok.partialparse is None:
                 line += 'None' + "\t" + str(eduidx) + "\n"
             else:
                 line += tok.partialparse + "\t" + str(eduidx) + "\n"
-            # print("----->",type(tok.partialparse),'  eduindex-->',eduidx)
             fout.write(line)
             # Boundary
             if tok.boundary:
@@ -87,13 +80,7 @@ def writedoc(doc, fname, wpath):
 
 
 def main(fmodel, fvocab, rpath, wpath):
-    """
-    from sklearn import svm
-    :param fmodel:
-    :param fvocab:
-    :param rpath:
-    :param wpath:
-    :return:
+    """ from sklearn import svm
     """
     global rpath_, wpath_, clf_, vocab_, dr_
     # extract
@@ -106,24 +93,6 @@ def main(fmodel, fvocab, rpath, wpath):
     dr_ = DocReader()
     f_list = [join(rpath, fname) for fname in listdir(rpath) if fname.endswith('conll')]
     if os.path.exists(f_list[0].replace(".conll", ".edu")):
-        print("已经进行过edu切割！")
         return
     pool = mp.Pool(processes=4)
     pool.map(do_seg_one_, f_list)
-
-# def writedoc(doc, fname, wpath):
-#     """ Write doc into a file with the CoNLL-like format
-#     """
-#     tokendict = doc.tokendict
-#     N = len(tokendict)
-#     fname = basename(fname) + '.edu'
-#     fname = join(wpath, fname)
-#     eduidx = 0
-#     with open(fname, 'w') as fout:
-#         for gidx in range(N):
-#             fout.write(str(eduidx) + '\n')
-#             if tokendict[gidx].boundary:
-#                 eduidx += 1
-#             if tokendict[gidx].send:
-#                 fout.write('\n')
-#     print 'Write segmentation: {}'.format(fname)
