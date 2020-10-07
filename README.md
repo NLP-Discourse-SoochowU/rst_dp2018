@@ -2,8 +2,8 @@
 
 <b>-- General Information</b>
 ```
-   1. This RST-style discourse parser produces discourse tree structure on full-text level, given a raw text.
-   2. The method we use in this parser is similar to the method in the paper RST Discourse Parsing with Tree-structured Neural Networks.
+   1. This is an RST-style text-level discourse parser based on "shift-reduce" mechanism.
+   2. An end-to-end parser version of "RST Discourse Parsing with Tree-structured Neural Networks".
 ```
 
 <b>-- Required Packages</b>
@@ -17,8 +17,9 @@
 <b>-- RST Parsing with Raw Documents</b>
 ```
    1. Prepare your raw documents in data/raw_txt in the format of *.out
-   2. Run the Stanford CoreNLP with the given bash script corpus_rst.sh using the command "./corpus_rst.sh "
-   3. Run parser.py to parse these raw documents into objects of rst_tree class (Wrap them into trees).
+   2. Run the Stanford CoreNLP with the given bash script corpus_rst.sh using the 
+      command "./corpus_rst.sh "
+   3. Run parser.py to parse these raw documents into objects of rst_tree class.
       - segmentation
       - wrap them into trees, saved in "data/trees_parsed/trees_list.pkl"
    4. Run drawer.py to draw those trees out by NLTK
@@ -32,7 +33,8 @@
 
    Please read the following paper for more technical details
    
-   [Longyin Zhang, Cheng Sun, Xin Tan, and Fang Kong, RST Discourse Parsing with Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
+   [Longyin Zhang, Cheng Sun, Xin Tan, and Fang Kong, RST Discourse Parsing with 
+   Tree-structured Neural Networks.](https://link.springer.com/chapter/10.1007/978-981-13-3083-4_2)
 
 <b>-- Developer</b>
 ```
